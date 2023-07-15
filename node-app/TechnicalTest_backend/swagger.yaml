@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Technical Test
+  version: 1.0.0
+  description: Deskripsi Proyek Anda
+servers:
+  - url: http://localhost:3000
+paths:
+  /data:
+    get:
+      summary: Mengambil data pengguna
+      responses:
+        '200':
+          description: OK
+  paths:
+    /users:
+      post:
+        summary: Memasukkan data
+        requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+        response:
+        '201':
+          description: OK
+components:
+  schemas:
+    UserInput:
+      type: object
+      properties:
+        id:
+          type: int
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - id
+        - name
+        - email
+        - password

@@ -1,0 +1,253 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Technical Test",
+        "version": "1.0.0",
+        "description": "Deskripsi API Proyek Anda"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/data1": {
+            "get": {
+                "summary": "Mengambil data table pertama",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Membuat data baru",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "stock": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                   "code",
+                                   "title",
+                                   "author",
+                                   "stock"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Data berhasil dimasukkan"
+                    }
+                }
+            }
+        },
+        "/data2": {
+            "get": {
+                "summary": "Mengambil data table kedua",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Membuat data baru kedua",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                },
+                                "required": [
+                                    "code",
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Data berhasil dimasukkan"
+                    }
+                }
+            }
+        }
+        },
+        "/data1/{code}": {
+            "get": {
+                "summary": "Mengambil data berdasarkan CODE",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "description": "ID data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Data tidak ditemukan"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Mengupdate data",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "description": "ID data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "stock": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data berhasil diupdate"
+                    }
+                }
+            }
+        },
+            "/data2/{code}": {
+                "get": {
+                    "summary": "Mengambil data berdasarkan CODE",
+                    "parameters": [
+                        {
+                            "name": "code",
+                            "in": "path",
+                            "description": "ID data",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "OK"
+                        },
+                        "404": {
+                            "description": "Data tidak ditemukan"
+                        }
+                    }
+                },
+                "put": {
+                    "summary": "Mengupdate data",
+                    "parameters": [
+                        {
+                            "name": "code",
+                            "in": "path",
+                            "description": "ID data",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "requestBody": {
+                        "required": true,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {
+                        "200": {
+                            "description": "Data berhasil diupdate"
+                        }
+                    }
+                }
+            },
+            
+            "delete": {
+                "summary": "Menghapus data",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "description": "ID data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Data berhasil dihapus"
+                    }
+                }
+            }
+        }
+    }
+
+
